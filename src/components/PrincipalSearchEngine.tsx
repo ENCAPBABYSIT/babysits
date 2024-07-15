@@ -11,15 +11,12 @@ const PrincipalSearchEngine = () => {
     }
 
   return (
-    <form action="" onSubmit={handleSubmit(onSubmit)}>
+    <form action="" onSubmit={handleSubmit(onSubmit)} >
         <div className='form-input'>
             <label htmlFor="">
-                <input className=' h-10 w-full' {...register("Buscar")} />
+                <input className='rounded-2xl h-10 w-full px-5' {...register("Buscar")} placeholder='Ingrese la dirección' />
             </label>
             
-        </div>
-        <div className='form-input'>
-            <button type='submit'>Buscar</button>
         </div>
     </form>
   )
