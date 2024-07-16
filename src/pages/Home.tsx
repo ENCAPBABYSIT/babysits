@@ -1,7 +1,7 @@
 import React from 'react'
 import PrincipalSearchEngine from '../components/PrincipalSearchEngine';
 import RegisterBtn from '../components/Buttons/RegisterBtn';
-import imgNiñera from '../../public/img/Gradient.png'
+import TargNiñera from '../components/TargNiñera';
 const Home = () => {
   return (
 
@@ -36,9 +36,8 @@ const Home = () => {
           </div>
       </section>
 
-      <section className='h-screen max-w-screen min-w-full flex flex-col px-[200px] items-center'>
+      <section className=' w-full flex flex-col px-[100px]'>
 
-        <div className='container'>
           <div>
             <h2 className='font-bold text-3xl mt-5'>NIÑERAS DISPONIBLES AHORA</h2>
             <div className='w-full flex items-center justify-between'>
@@ -52,34 +51,16 @@ const Home = () => {
               <span>Más de 254.100 resultados</span>
             </div>
           </div>
-          <div className='flex flex-col items-start mt-5'>
-            <div className='flex flex-col items-start max-w-[300px] max-h-[459.81px] px-[12px] flex-shrink-0'>
-              <div className='flex justify-center items-start self-stretch'>
-                <div className='flex p-[12px] flex-col justify-center items-start gap-[12px] flex-1 flex-grow-0 flex-shrink-0 rounded-[24px] bg-white shadow-md'>
-                  <div className='flex w-[282px] flex-col content-center items-start'>
-                    <div className='max-w-[282px] flex-1 flex-grow-0 flex-shrink-0 self-stretch rounded-[16px] bg-lightgray bg-cover bg-center bg-no-repeat' style={{
-                            backgroundImage: `url(${imgNiñera})`
-                        }}>
-                        <div className='flex pb-0.5 flex-col items-start self-stretch p-2'>
-                          <p className='font-bold text-base leading-[21.6px] text-white'>MARIANA: 29 </p>
-                          <p className='font-normal text-base leading-[15px] text-white'>Lima</p>
-                        </div>
-
-                        <div>
-                          <div className='flex py-[4px] px[8px] flex-col items-start rounded-[8px] bg-green-600'>
-                            <p>Online Ahora</p>
-                          </div>
-                        </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        
+          <div className='mt-5 flex justify-between flex-wrap '>
+            <TargNiñera/>
+            <TargNiñera/>
+            <TargNiñera/>
+            <TargNiñera/>
+            <TargNiñera/>
+            <TargNiñera/>
+            <TargNiñera/>
+            <TargNiñera/>
+          </div>       
 
       </section>
     </main>
