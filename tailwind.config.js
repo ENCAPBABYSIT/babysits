@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'fsinlitimes': ['Grandstander', 'sans-serif']
+        'fsinlitimes': ['Montserrat', 'sans-serif']
       }
     },
   },

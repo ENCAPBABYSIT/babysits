@@ -13,10 +13,12 @@ const PrincipalSearchEngine = () => {
   return (
     <form action="" onSubmit={handleSubmit(onSubmit)} >
         <div className='form-input'>
-            <label htmlFor="">
-                <input className='rounded-2xl h-10 w-full px-5' {...register("Buscar")} placeholder='Ingrese la dirección' />
-            </label>
-            
+            <legend className='rounded-2xl h-14 px-6 py-2 bg-white'>
+                <label htmlFor="">
+                    <p className='text-[10px]'>Ingrese la zona de búsqueda</p>
+                    <input className='w-full rounded focus:outline-none focus:border-none' {...register("Buscar")} placeholder='Ingrese la dirección' />
+                </label>
+            </legend>
         </div>
     </form>
   )
