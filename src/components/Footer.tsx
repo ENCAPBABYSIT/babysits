@@ -5,8 +5,8 @@ import { AiFillInstagram } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <footer className='relative max-w-screen'>
-      <div className='flex justify-between px-52'>
+    <footer className='relative max-w-full'>
+      <div className='flex justify-between xl:px-52  px-10'>
         <div className=''>
           <h2 className='font-bold mb-5 text-lg'>Buscar</h2>
           <ul>

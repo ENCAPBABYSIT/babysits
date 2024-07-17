@@ -2,7 +2,7 @@ import imgNiñera from '/img/Gradient.png'
 import start from '/icons/start.svg'
 const TargNiñera = () => {
   return (
-    <div className='flex flex-col w-[300px] h-[420px] shrink-0 bg-[#f3f3f349] rounded-[24px] mb-20'>
+    <div className='flex flex-col w-[280px] h-[400px] shrink-0 bg-[#f3f3f349] rounded-[24px] mb-28'>
               <div className='flex flex-col  items-start gap-1 flex-grow flex-shrink-0 basis-0 rounded-[24px] bg-white shadow-sm border'>
                 <div className='relative w-full'>
                   <img src={imgNiñera} className='w-full rounded-t-[24px]' alt="" />

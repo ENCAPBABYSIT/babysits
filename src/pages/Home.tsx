@@ -2,6 +2,12 @@ import React from 'react'
 import PrincipalSearchEngine from '../components/PrincipalSearchEngine';
 import RegisterBtn from '../components/Buttons/RegisterBtn';
 import TargNiñera from '../components/TargNiñera';
+import guia from '/icons/guia.svg';
+import flecha from '/icons/flecha1.svg';
+import puntero1 from '/icons/vectores/vector1.svg';
+import guia2 from '/icons/vectores/guia2.svg';
+import vector2 from '/icons/vectores/vector2.svg';
+
 const Home = () => {
   return (
 
@@ -60,8 +66,62 @@ const Home = () => {
             <TargNiñera/>
             <TargNiñera/>
             <TargNiñera/>
-          </div>       
+          </div>
 
+          <div className='flex justify-center  mb-28 bg-white  '>
+            <div className='border-[#38B698] border-[2px] px-5 py-2 rounded-lg' >
+              <a className='text-[#38B698] font-bold' href="">MOSTRAR MÁS</a>
+            </div>
+          </div>
+
+      </section>
+
+      <section>
+        <div className='flex justify-center'>
+          <p className='text-2xl font-semibold'>Cómo encontrar tu niñea o familia ideal para ti</p>
+        </div>
+          <div className='relative'>
+            <img src={guia} alt="" />
+            <div className='flex flex-col'>
+              <div className='flex absolute top-0 left-0 p-2 bg-opacity-50 mt-52 ml-14'>
+                <div className="flex items-center justify-center w-10 h-10 bg-green-500 rounded-full text-white font-bold">1</div>
+
+                <div className="ml-5">
+                  <h3 className="font-bold">Buscar</h3>
+                  <p className='max-w-52'>Filtra según tus gustos o necesidades, revisa perfiles detallados.</p>
+                </div>
+              </div>
+
+              <div className='absolute  top-[21rem] left-[10rem] flex gap-0'>
+                <img src={flecha} className='rotate-3' alt="" />
+                <img src={puntero1} alt="" className=''/>
+              </div>
+
+              <div className='absolute  top-[25rem] left-[66rem] flex gap-0'>
+                <div className="flex items-center justify-center w-10 h-10 bg-green-500 rounded-full text-white font-bold">2</div>
+                <div className="ml-5">
+                  <h3 className="font-bold">Buscar</h3>
+                  <p className='max-w-52'>Filtra según tus gustos o necesidades, revisa perfiles detallados.</p>
+                </div>
+              </div>
+
+              <div className='absolute top-[32rem] left-[72rem] '>
+                <img src={guia2} className='-rotate-6 ml-4' alt="" />
+                <img src={vector2} alt="" className=''/>
+              </div>
+
+              <div className='absolute  top-[70rem] left-[58rem] flex gap-0'>
+                <div className="flex items-center justify-center w-10 h-10 bg-green-500 rounded-full text-white font-bold">2</div>
+                <div className="ml-5">
+                  <h3 className="font-bold">Buscar</h3>
+                  <p className='max-w-52'>Filtra según tus gustos o necesidades, revisa perfiles detallados.</p>
+                </div>
+              </div>
+            </div>
+            
+          </div> 
+
+          
       </section>
     </main>
 
