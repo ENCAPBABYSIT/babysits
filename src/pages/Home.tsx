@@ -41,9 +41,7 @@ const Home = () => {
             </div>
           </div>
       </section>
-
       <section className=' w-full flex flex-col px-[100px]'>
-
           <div>
             <h2 className='font-bold text-3xl mt-5'>NIÑERAS DISPONIBLES AHORA</h2>
             <div className='w-full flex items-center justify-between'>
@@ -75,53 +73,64 @@ const Home = () => {
           </div>
 
       </section>
+     <section>
+      <h2 className='text-center px-10 text-2xl font-bold'>PASOS PARA ENCONTRAR UNA NIÑERA O FAMILIA IDEAL PARA TI</h2>
 
-      <section>
-        <div className='flex justify-center'>
-              <p className='text-2xl font-semibold'>Cómo encontrar tu niñea o familia ideal para ti</p>
+      <div className='flex flex-col sm:flex-row px-10 sm:gap-24 w-auto my-10'>
+        <div className='mx-auto  sm:mr-0 min-h-52 min-w-52 rounded-full bg-[#cfffe499] flex items-center sm:my-auto sm:end-full'>
+          <div className='mx-auto'>
+            1
+          </div>
+          <div className='mx-auto hidden'>
+            2
+          </div>
+          <div className=' mx-auto hidden'>
+            3
+          </div>
+        </div>
+        
+        <div className='flex gap-20 sm:ml-0 sm:[&>div>div:first-child]:mx-0 [&>div>div:first-child]:rounded-full [&>div>div:first-child]:w-16 [&>div>div:first-child]:h-16 [&>div>div:first-child]:bg-[#cfffe499] my-10 mx-auto sm:flex-col sm:gap-12'>
+          <div className='flex gap-4'>
+            <div className='mx-auto flex items-center'>
+              <p className='mx-auto'>1</p>
             </div>
-            <div className='relative'>
-              <img src={guia} alt="" />
-              <div className='flex flex-col'>
-                <div className='flex absolute top-0 left-0 p-2 bg-opacity-50 mt-52 ml-14'>
-                  <div className="flex items-center justify-center w-10 h-10 bg-green-500 rounded-full text-white font-bold">1</div>
 
-                  <div className="ml-5">
-                    <h3 className="font-bold">Buscar</h3>
-                    <p className='max-w-52'>Filtra según tus gustos o necesidades, revisa perfiles detallados.</p>
-                  </div>
-                </div>
+            <div className='flex-col w-2/3 hidden sm:block'>
+              <h3 className='font-bold'>BUSCA</h3>
+              <p className=''>Filtra según tus gustos o necesidades, revisa perfiles detallados.</p>
+            </div>
+          </div>
 
-                <div className='absolute  top-[21rem] left-[10rem] flex gap-0'>
-                  <img src={flecha} className='rotate-3' alt="" />
-                  <img src={puntero1} alt="" className=''/>
-                </div>
+          <div className='flex gap-4 sm:ml-20'>
+            <div className='mx-auto flex items-center'>
+              <p className='mx-auto'>1</p>
+            </div>
 
-                <div className='absolute  top-[25rem] left-[66rem] flex gap-0'>
-                  <div className="flex items-center justify-center w-10 h-10 bg-green-500 rounded-full text-white font-bold">2</div>
-                  <div className="ml-5">
-                    <h3 className="font-bold">Buscar</h3>
-                    <p className='max-w-52'>Filtra según tus gustos o necesidades, revisa perfiles detallados.</p>
-                  </div>
-                </div>
+            <div className='flex-col gap-3 w-2/3 hidden sm:block'>
+              <h3 className='font-bold'>BUSCA</h3>
+              <p className=''>Filtra según tus gustos o necesidades, revisa perfiles detallados.</p>
+            </div>
+          </div>
 
-                <div className='absolute top-[32rem] left-[72rem] '>
-                  <img src={guia2} className='-rotate-6 ml-4' alt="" />
-                  <img src={vector2} alt="" className=''/>
-                </div>
+          <div className='flex gap-4'>
+            <div className='mx-auto flex items-center'>
+              <p className='mx-auto'>1</p>
+            </div>
 
-                <div className='absolute  top-[70rem] left-[58rem] flex gap-0'>
-                  <div className="flex items-center justify-center w-10 h-10 bg-green-500 rounded-full text-white font-bold">2</div>
-                  <div className="ml-5">
-                    <h3 className="font-bold">Buscar</h3>
-                    <p className='max-w-52'>Filtra según tus gustos o necesidades, revisa perfiles detallados.</p>
-                  </div>
-                </div>
-              </div>
-              
-            </div> 
-          </section>
-          <section>
+            <div className='flex-col gap-3 w-2/3 hidden sm:block'>
+              <h3 className='font-bold'>BUSCA</h3>
+              <p className=''>Filtra según tus gustos o necesidades, revisa perfiles detallados.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className='sm:hidden flex-col'>
+          <h3 className='text-center font-bold'>BUSCAR</h3>
+          <p className='text-center mx-10'>Filtra según tus gustos o necesidades, revisa perfiles detallados.</p>
+        </div>
+      </div>
+     </section>
+      <section>
           <div className="bg-[#e2f4f5] p-8">
           <h2 className="text-center text-xl font-bold mb-2">NUESTRAS RESEÑAS</h2>
           <p className="text-center mb-4">
@@ -151,6 +160,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
     </main>
 
     
