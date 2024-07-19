@@ -6,7 +6,7 @@ import { AiFillInstagram } from "react-icons/ai";
 const Footer = () => {
   return (
     <footer className='relative max-w-full'>
-      <div className='flex justify-between xl:px-52  px-10'>
+      <div className='flex justify-between xl:px-52  px-10 my-24'>
         <div className=''>
           <h2 className='font-bold mb-5 text-lg'>Buscar</h2>
           <ul>
@@ -46,7 +46,7 @@ const Footer = () => {
        <path d="M0.5 0.998047C253 31.4995 401 57.9995 663 57.9995C969.757 57.9995 1123.5 30 1437 0.998047" stroke="black"/>
       </svg>
 
-      <div className='px-52 text-xl mt-5'>
+      <div className='px-52 text-xl mt-5 mb-5'>
         <p>© 2024 LOGO - Términos y Condiciones  </p>
       </div>
     </footer>

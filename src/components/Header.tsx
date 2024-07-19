@@ -1,6 +1,17 @@
 import React from 'react'
+import { useState } from 'react'
 
-const Header = () => {
+interface ButtonProps {
+  /** El texto que se mostrará dentro del botón */
+  setShowModalLogin: (showModalLogin) => void
+  /** Si se puede interactuar con el botón */
+}
+
+
+const Header = ({setShowModalLogin} : ButtonProps) => {
+
+  setShowModalLogin(true);
+ 
   return (
     <header className='max-w-screen px-10 shadow-md'>
         <div className='flex flex-wrap justify-between xl:w-1/8'>
@@ -14,7 +25,10 @@ const Header = () => {
             <ul className='flex gap-10 self-center items-center py-5 text-center'>
               <li><a href="">¿Cómo funciona?</a></li>
               <li><a href="">Planes</a></li>
-              <li className='rounded-[30px] border-[4px] border-solid border-[#38B698] p-1 px-3 center'><a href="">ACCEDER</a></li>
+              <li className='rounded-[30px] border-[4px] border-solid border-[#38B698] p-1 px-3 center'>
+                <button 
+                >ACCEDER</button>
+              </li>
               <li><a href=""  className='rounded-[30px] bg-[#38B698]  border-[4px] border-solid border-[#38B698] p-1 px-3 center text-white'>REGISTRARME</a></li>
             </ul>
           </div>
