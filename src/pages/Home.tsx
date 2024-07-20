@@ -189,7 +189,6 @@ const Home = () => {
         </div>
       </div>
       </section>
-
       <section>
         <div className="bg-[#e2f4f5] p-10">
           <div className="flex">
