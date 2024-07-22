@@ -1,6 +1,26 @@
 import React from 'react'
+import { FaFacebookF } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
-const SignUp = () => {
+
+interface SignUpProps {
+  showModalSignUp: boolean
+  setShowModalSignUp: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+
+const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
+
+  if (!showModalSignUp) {
+    return null; // No renderizar el modal si showModalLogin es falso
+  }
+
+  const handleClose = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (e.target === e.currentTarget) {
+      setShowModalSignUp(false);
+    }
+  };
+  
   return (
     <div
     className="fixed inset-0 bg-[#2c4636b2] flex items-center justify-center z-50"
@@ -9,26 +29,23 @@ const SignUp = () => {
     <div className="relative bg-white p-8 rounded-lg shadow-lg max-w-md w-full text-center">
       <button
         className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-        onClick={() => setShowModalLogin(false)}
+        onClick={() => setShowModalSignUp(false)}
       >
         &times;
       </button>
-      <h1 className="text-2xl font-bold mb-4">LOGO</h1>
-      <h2 className="text-lg mb-4">Bienvenido de nuevo</h2>
+      <h1 className="text-3xl font-bold mb-4 text-[#38B698]">LOGO</h1>
+      <h2 className="text-lg ">Bienvenido a <span className='font-bold'>LOGO</span> </h2>
+      <h2 className="text-lg mb-4">¡Registrate!, es gratis</h2>
       <form className="space-y-4">
         <div className="flex space-x-4">
           <input
             type="text"
             placeholder="Nombres"
-            value={nombres}
-            onChange={(e) => setNombres(e.target.value)}
             className="w-full p-2 border rounded"
           />
           <input
             type="text"
             placeholder="Apellidos"
-            value={apellidos}
-            onChange={(e) => setApellidos(e.target.value)}
             className="w-full p-2 border rounded"
           />
         </div>
@@ -36,8 +53,6 @@ const SignUp = () => {
           <input
             type="email"
             placeholder="Correo Electrónico"
-            value={correo}
-            onChange={(e) => setCorreo(e.target.value)}
             className="w-full p-2 border rounded"
           />
         </div>
@@ -45,21 +60,26 @@ const SignUp = () => {
           <input
             type="password"
             placeholder="Contraseña - mínimo 8 dígitos"
-            value={contrasena}
-            onChange={(e) => setContrasena(e.target.value)}
             className="w-full p-2 border rounded"
           />
         </div>
-        <button type="submit" className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">
-          INGRESAR
+        <button type="submit" className="w-full bg-[#38B698] text-white py-2 rounded-2xl">
+          REGISTRARME
         </button>
       </form>
       <p className="my-4">o continuar con</p>
       <div className="flex justify-center space-x-4">
-        <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Facebook</button>
-        <button className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Google</button>
+        <button className="flex px-5 border rounded-3xl hover:bg-blue-200 justify-between items-center gap-4 ">
+          <FaFacebookF color='#3b5998'/>
+          Facebook
+        </button>
+
+        <button 
+          className="flex px-5 py-2 border rounded-3xl hover:bg-blue-200 justify-between items-center gap-4 ">
+          <FcGoogle />
+          Google</button>
       </div>
-      <p className="mt-4">Si aún no tienes una cuenta, <a href="#" className="text-blue-500">Regístrate</a></p>
+      <p className="mt-4">Si ya tienes una cuenta, <button className="text-blue-500">Iniciar Sesión</button></p>
     </div>
   </div>
   )

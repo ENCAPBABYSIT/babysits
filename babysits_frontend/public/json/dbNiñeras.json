@@ -4,13 +4,167 @@
     "name": "Jesica",
     "lastName": "Quispe Quispe",
     "email": "jess@gmail.com",
-    "password": "jess"
+    "password": "jess",
+    "age": 18,
+    "department": "Lima",
+    "fee": 12.8,
+    "score": 5,
+    "description": "Hola, soy Luciana, estudiante de psicología, me encanta estar con los niños.",
+    "calendar": {
+      "MON": "EARLY, LATE",
+      "TUE": "EARLY, LATE",
+      "WED": "EARLY, LATE",
+      "THU": "EARLY, LATE",
+      "FRI": "EARLY, LATE",
+      "SAT": "",
+      "SUN": ""
+    }
   },
   {
     "id": 2,
     "name": "Maria",
     "lastName": "Rosales Quintana",
     "email": "Maria@gmail.com",
-    "password": "maria"
+    "password": "maria",
+    "age": 18,
+    "department": "Lima",
+    "fee": 12.8,
+    "score": 5,
+    "description": "Hola, soy Luciana, estudiante de psicología, me encanta estar con los niños.",
+    "calendar": {
+      "MON": "EARLY, LATE",
+      "TUE": "EARLY, LATE",
+      "WED": "EARLY, LATE",
+      "THU": "EARLY, LATE",
+      "FRI": "EARLY, LATE",
+      "SAT": "",
+      "SUN": ""
+    }
+  },
+  {
+    "id": 3,
+    "name": "Talia",
+    "lastName": "Rosales Quintana",
+    "email": "Maria@gmail.com",
+    "password": "maria",
+    "age": 18,
+    "department": "Lima",
+    "fee": 12.8,
+    "score": 5,
+    "description": "Hola, soy Luciana, estudiante de psicología, me encanta estar con los niños.",
+    "calendar": {
+      "MON": "EARLY, LATE",
+      "TUE": "EARLY, LATE",
+      "WED": "EARLY, LATE",
+      "THU": "EARLY, LATE",
+      "FRI": "EARLY, LATE",
+      "SAT": "",
+      "SUN": ""
+    }
+  },
+  {
+    "id": 4,
+    "name": "Carla",
+    "lastName": "Rosales Quintana",
+    "email": "Maria@gmail.com",
+    "password": "maria",
+    "age": 18,
+    "department": "Lima",
+    "fee": 12.8,
+    "score": 5,
+    "description": "Hola, soy Luciana, estudiante de psicología, me encanta estar con los niños.",
+    "calendar": {
+      "MON": "EARLY, LATE",
+      "TUE": "EARLY, LATE",
+      "WED": "EARLY, LATE",
+      "THU": "EARLY, LATE",
+      "FRI": "EARLY, LATE",
+      "SAT": "",
+      "SUN": ""
+    }
+  },
+  {
+    "id": 5,
+    "name": "Rosa",
+    "lastName": "Rosales Quintana",
+    "email": "Maria@gmail.com",
+    "password": "maria",
+    "age": 17,
+    "department": "Lima",
+    "fee": 12.8,
+    "score": 5,
+    "description": "Hola, soy Luciana, estudiante de psicología, me encanta estar con los niños.",
+    "calendar": {
+      "MON": "EARLY, LATE",
+      "TUE": "EARLY, LATE",
+      "WED": "EARLY, LATE",
+      "THU": "EARLY, LATE",
+      "FRI": "EARLY, LATE",
+      "SAT": "",
+      "SUN": ""
+    }
+  },
+  {
+    "id": 6,
+    "name": "Rosa",
+    "lastName": "Rosales Quintana",
+    "email": "Maria@gmail.com",
+    "password": "maria",
+    "age": 18,
+    "department": "Lima",
+    "fee": 12.8,
+    "score": 5,
+    "description": "Hola, soy Luciana, estudiante de psicología, me encanta estar con los niños.",
+    "calendar": {
+      "MON": "EARLY, LATE",
+      "TUE": "EARLY, LATE",
+      "WED": "EARLY, LATE",
+      "THU": "EARLY, LATE",
+      "FRI": "EARLY, LATE",
+      "SAT": "",
+      "SUN": ""
+    }
+  },
+  {
+    "id": 7,
+    "name": "Talia",
+    "lastName": "Rosales Quintana",
+    "email": "Maria@gmail.com",
+    "password": "maria",
+    "age": 18,
+    "department": "Lima",
+    "fee": 12.8,
+    "score": 5,
+    "description": "Hola, soy Luciana, estudiante de psicología, me encanta estar con los niños.",
+    "calendar": {
+      "MON": "EARLY, NOON",
+      "TUE": "EARLY, LATE",
+      "WED": "EARLY, LATE",
+      "THU": "EARLY, LATE",
+      "FRI": "EARLY, LATE",
+      "SAT": "",
+      "SUN": ""
+    }
+  },
+  {
+    "id": 8,
+    "name": "Carla",
+    "lastName": "Rosales Quintana",
+    "email": "Maria@gmail.com",
+    "password": "maria",
+    "age": 18,
+    "department": "Lima",
+    "fee": 12.8,
+    "score": 5,
+    "description": "Hola, soy Luciana, estudiante de psicología, me encanta estar con los niños.",
+    "calendar": {
+      "MON": "EARLY, LATE",
+      "TUE": "EARLY, LATE",
+      "WED": "EARLY, LATE",
+      "THU": "EARLY, LATE",
+      "FRI": "EARLY, LATE",
+      "SAT": "",
+      "SUN": ""
+    }
   }
 ]

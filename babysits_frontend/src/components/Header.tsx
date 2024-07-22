@@ -3,13 +3,15 @@ import { useState } from 'react'
 
 interface ButtonProps {
   /** El texto que se mostrará dentro del botón */
-  showModalLogin: boolean
+  showModalLogin: boolean,
+  showModalSignUp: boolean,
   setShowModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowModalSignUp: React.Dispatch<React.SetStateAction<boolean>>;
   /** Si se puede interactuar con el botón */
 }
 
 
-const Header = ({setShowModalLogin, showModalLogin} : ButtonProps) => {
+const Header = ({setShowModalLogin, showModalLogin, setShowModalSignUp, showModalSignUp} : ButtonProps) => {
 
   return (
     <header className='max-w-screen px-10 shadow-md'>
@@ -29,7 +31,10 @@ const Header = ({setShowModalLogin, showModalLogin} : ButtonProps) => {
                   onClick={() => setShowModalLogin(!showModalLogin)}
                 >ACCEDER</button>
               </li>
-              <li><a href=""  className='rounded-[30px] bg-[#38B698]  border-[4px] border-solid border-[#38B698] p-1 px-3 center text-white'>REGISTRARME</a></li>
+              <li>
+                <button
+                  className='rounded-[30px] bg-[#38B698]  border-[4px] border-solid border-[#38B698] p-1 px-3 center text-white'
+                  onClick={() => setShowModalSignUp(!showModalSignUp)}>REGISTRARME</button></li>
             </ul>
           </div>
         </div>

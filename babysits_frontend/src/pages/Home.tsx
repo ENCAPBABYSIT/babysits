@@ -1,12 +1,43 @@
-import React from 'react'
 import PrincipalSearchEngine from '../components/PrincipalSearchEngine';
 import RegisterBtn from '../components/Buttons/RegisterBtn';
 import principalBackground from '/img/principalBackground.png';
-import TargProd from '../components/pruebas/TargProd';
 import TargNiñera from '../components/TargNiñera';
 
-const Home = () => {
+interface homeProps{
+  sitters: Sitter[];
+}
 
+interface Sitter {
+  id: number,
+  name: string,
+  lastName: string,
+  email: string,
+  password: string,
+  age: number,
+  department: string,
+  fee: number,
+  score: number,
+  description:string,
+  calendar: sitterCalendar[]
+
+}
+
+interface sitterCalendar{
+  MON: sitterShedule[],
+  TUE: sitterShedule[],
+  WED: sitterShedule[],
+  THU: sitterShedule[],
+  FRI: sitterShedule[],
+  SAT: sitterShedule[],
+  SUN: sitterShedule[]
+}
+
+interface sitterShedule{
+  Early: boolean,
+  noon: boolean,
+  late: boolean,
+}
+const Home = ({sitters}: homeProps) => {
   const preguntas = [
     "¿La membresía es gratis para cualquiera?",
     "¿La membresía es gratis para cualquiera?",
@@ -16,15 +47,12 @@ const Home = () => {
     "¿La membresía es gratis para cualquiera?",
     "¿La membresía es gratis para cualquiera?",
   ];
-
   const extras = [
     "Consejos sobre la plataforma",
     "CONSEJO 2",
     "CONSEJO 4",
     "CONSEJO 5",
   ];
-
-
   return (
 
     <main className='font-fsinlitimes'>
@@ -71,17 +99,18 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center xl:justify-between gap-2 mt-10 gap-y-20">
-            <TargNiñera/>
-            <TargNiñera/> 
-            <TargNiñera/>
-            <TargNiñera/>
-            
-            <TargNiñera/>
-            <TargNiñera/>
+          <div className="flex flex-wrap justify-center gap-10 mt-10 gap-y-24">
+            {sitters.map(sitter => (
+                <TargNiñera
+                key={sitter.id}
+                name = {sitter.name}
+                age = {sitter.age}
+                calendar = {sitter.calendar}
+                />
+            ))
+            }
           </div>
-
-          <div className='flex justify-center  my-28 bg-white  '>
+          <div className='flex justify-center my-28 bg-white  '>
             <div className='border-[#38B698] border-[2px] px-5 py-2 rounded-lg' >
               <a className='text-[#38B698] font-bold' href="">MOSTRAR MÁS</a>
             </div>
