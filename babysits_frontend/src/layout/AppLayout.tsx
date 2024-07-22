@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../components/Header'
 import Home from '../pages/Home'
 import Footer from '../components/Footer'
@@ -8,7 +7,9 @@ import { useState, useEffect } from 'react'
 interface Sitter {
   id: number;
   name: string;
+  lastName: string;
   email: string;
+  password: string;
 }
 
 const AppLayout = () => {
@@ -23,23 +24,15 @@ const AppLayout = () => {
       .catch(error => console.error('Error fetching users:', error));
   }, []);
 
-  console.log(sitters)
-
   return (
     <>
-
-      <ul>
-        {sitters.map(sitter => (
-          <h1 key={sitter.id}>{sitter.name} - {sitter.email}</h1>
-        ))}
-      </ul>
-
-
       {showModalLogin && (
         <LogIn 
           showModalLogin = {showModalLogin}
-        
-          setShowModalLogin={setShowModalLogin} />
+          setShowModalLogin={setShowModalLogin}
+          sitters = {sitters}
+        />
+          
       )}
       
       <Header 
