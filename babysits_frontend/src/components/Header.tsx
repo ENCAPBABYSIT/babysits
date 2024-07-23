@@ -1,6 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
-
 interface ButtonProps {
   /** El texto que se mostrará dentro del botón */
   showModalLogin: boolean,
