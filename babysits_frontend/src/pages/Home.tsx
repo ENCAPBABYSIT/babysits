@@ -4,10 +4,10 @@ import principalBackground from '/img/principalBackground.png';
 import TargNiñera from '../components/TargNiñera';
 
 interface homeProps{
-  sitters: Sitter[];
+  sitters: Sitters[];
 }
 
-interface Sitter {
+interface Sitters {
   id: number,
   name: string,
   lastName: string,
@@ -18,28 +18,48 @@ interface Sitter {
   fee: number,
   score: number,
   description:string,
-  calendar: sitterCalendar[]
-
+  calendar: {
+    mon: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    tue: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    wed: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    thu: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    fri: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    sat: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    sun: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    }
+  }
 }
 
-interface sitterCalendar{
-  MON: sitterShedule[],
-  TUE: sitterShedule[],
-  WED: sitterShedule[],
-  THU: sitterShedule[],
-  FRI: sitterShedule[],
-  SAT: sitterShedule[],
-  SUN: sitterShedule[]
-}
-
-interface sitterShedule{
-  Early: boolean,
-  noon: boolean,
-  late: boolean,
-}
 const Home = ({sitters}: homeProps) => {
   const preguntas = [
-    "¿La membresía es gratis para cualquiera?",
+    "¿PREGUNTA 2?",
     "¿La membresía es gratis para cualquiera?",
     "¿La membresía es gratis para cualquiera?",
     "¿La membresía es gratis para cualquiera?",
@@ -104,6 +124,7 @@ const Home = ({sitters}: homeProps) => {
                 <TargNiñera
                 key={sitter.id}
                 name = {sitter.name}
+                description = {sitter.description}
                 age = {sitter.age}
                 calendar = {sitter.calendar}
                 />

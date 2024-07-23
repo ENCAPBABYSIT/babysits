@@ -64,7 +64,7 @@ const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
           />
         </div>
         <button type="submit" className="w-full bg-[#38B698] text-white py-2 rounded-2xl">
-          REGISTRARME
+          <a href="/toregister">Registrarme</a>
         </button>
       </form>
       <p className="my-4">o continuar con</p>

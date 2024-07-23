@@ -16,24 +16,45 @@ interface Sitter {
   fee: number,
   score: number,
   description:string,
-  calendar: sitterCalendar[]
+  calendar: {
+    mon: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    tue: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    wed: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    thu: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    fri: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    sat: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    },
+    sun: {
+      early: boolean
+      noon: boolean
+      late: boolean
+    }
+  }
 }
 
-interface sitterCalendar{
-  MON: sitterShedule[],
-  TUE: sitterShedule[],
-  WED: sitterShedule[],
-  THU: sitterShedule[],
-  FRI: sitterShedule[],
-  SAT: sitterShedule[],
-  SUN: sitterShedule[]
-}
-
-interface sitterShedule{
-  Early: boolean,
-  noon: boolean,
-  late: boolean,
-}
 
 const AppLayout = () => {
   const [showModalLogin, setShowModalLogin] = useState(false);
@@ -46,7 +67,6 @@ const AppLayout = () => {
       .then(response => response.json())
       .then(data => setSitters(data))
       .catch(error => console.error('Error fetching users:', error));
-      console.log(1)
   }, [sitters.length]);
 
   return (
