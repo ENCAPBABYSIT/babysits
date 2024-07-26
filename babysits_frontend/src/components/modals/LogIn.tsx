@@ -1,6 +1,6 @@
 import React from 'react';
-import useForm from 'react'
 import { useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 interface LogInProps {
   showModalLogin: boolean
@@ -17,8 +17,6 @@ interface sitter{
 }
 
   const LogIn = ({showModalLogin, setShowModalLogin, sitters} : LogInProps) => {
-
-  console.log(sitters)
 
   const [nombres, setNombres] = useState('');
   const [apellidos, setApellidos] = useState('');

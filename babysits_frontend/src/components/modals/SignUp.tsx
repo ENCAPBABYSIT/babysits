@@ -1,4 +1,6 @@
 import React from 'react'
+import { useForm, SubmitHandler } from 'react-hook-form';
+
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
@@ -8,8 +10,18 @@ interface SignUpProps {
   setShowModalSignUp: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface SignUpInput {
+  names:string
+  lastNames:string
+  email:string
+  password:string
+}
+
 
 const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
+
+  const {register, handleSubmit} = useForm<SignUpInput>()
+  const onSubmit: SubmitHandler<SignUpInput> = (data) => console.log(data)
 
   if (!showModalSignUp) {
     return null; // No renderizar el modal si showModalLogin es falso
@@ -36,14 +48,17 @@ const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
       <h1 className="text-3xl font-bold mb-4 text-[#38B698]">LOGO</h1>
       <h2 className="text-lg ">Bienvenido a <span className='font-bold'>LOGO</span> </h2>
       <h2 className="text-lg mb-4">¡Registrate!, es gratis</h2>
-      <form className="space-y-4">
+      <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex space-x-4">
           <input
+            {...register("names", {required:true})}
             type="text"
             placeholder="Nombres"
             className="w-full p-2 border rounded"
+           
           />
           <input
+            {...register("lastNames", {required:true})}
             type="text"
             placeholder="Apellidos"
             className="w-full p-2 border rounded"
@@ -51,6 +66,7 @@ const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
         </div>
         <div>
           <input
+           {...register("email", {required:true})}
             type="email"
             placeholder="Correo Electrónico"
             className="w-full p-2 border rounded"
@@ -58,13 +74,14 @@ const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
         </div>
         <div>
           <input
+            {...register("password", {required:true})}
             type="password"
             placeholder="Contraseña - mínimo 8 dígitos"
             className="w-full p-2 border rounded"
           />
         </div>
         <button type="submit" className="w-full bg-[#38B698] text-white py-2 rounded-2xl">
-          <a href="/toregister">Registrarme</a>
+          Registrarme
         </button>
       </form>
       <p className="my-4">o continuar con</p>
