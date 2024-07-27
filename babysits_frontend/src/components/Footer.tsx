@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaFacebook, FaTiktok  } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 

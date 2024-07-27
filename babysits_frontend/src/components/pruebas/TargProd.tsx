@@ -1,5 +1,3 @@
-import React from 'react'
-
 const TargProd = () => {
   return (
     <div className="max-w-sm  bg-white shadow-lg rounded-lg overflow-hidden">
