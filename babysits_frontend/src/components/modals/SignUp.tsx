@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
-
+import { useNavigate } from 'react-router-dom';
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
@@ -21,7 +21,12 @@ interface SignUpInput {
 const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
 
   const {register, handleSubmit} = useForm<SignUpInput>()
-  const onSubmit: SubmitHandler<SignUpInput> = (data) => console.log(data)
+  const navigate = useNavigate();
+
+  const onSubmit: SubmitHandler<SignUpInput> = (data) => {
+    console.log(data);
+    navigate('/toregister', {state:data}); // Redirigir a otra ventana después de enviar el formulario
+  };
 
   if (!showModalSignUp) {
     return null; // No renderizar el modal si showModalLogin es falso
@@ -48,7 +53,7 @@ const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
       <h1 className="text-3xl font-bold mb-4 text-[#38B698]">LOGO</h1>
       <h2 className="text-lg ">Bienvenido a <span className='font-bold'>LOGO</span> </h2>
       <h2 className="text-lg mb-4">¡Registrate!, es gratis</h2>
-      <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+      <form className="space-y-4" onSubmit={handleSubmit(onSubmit)} action='/toregister' method='POST'>
         <div className="flex space-x-4">
           <input
             {...register("names", {required:true})}
