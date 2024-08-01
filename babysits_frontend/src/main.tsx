@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import Router from './router.tsx'
+import Router from './Router.tsx'
 //<React.StrictMode>
 //</React.StrictMode>,
 

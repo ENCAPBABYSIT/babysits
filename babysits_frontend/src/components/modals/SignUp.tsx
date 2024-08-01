@@ -25,7 +25,7 @@ const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
 
   const onSubmit: SubmitHandler<SignUpInput> = (data) => {
     console.log(data);
-    navigate('/toregister', {state:data}); // Redirigir a otra ventana después de enviar el formulario
+    navigate('/signin', {state:data}); // Redirigir a otra ventana después de enviar el formulario
   };
 
   if (!showModalSignUp) {

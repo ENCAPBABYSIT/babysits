@@ -1,3 +1,4 @@
+import React from "react";
 import { useLocation } from "react-router-dom"
 import { Outlet, Link } from 'react-router-dom';
 
@@ -10,7 +11,6 @@ const Register = () => {
     email: string;
     password: string;
   };
-
 
   return (
     <div className="h-screen flex flex-col items-center">
@@ -28,12 +28,11 @@ const Register = () => {
           </div>
         </div>
         <div className="flex items-center space-x-2">
-          <p>{data.names}</p>
         </div>
       </header>
 
-      <Outlet/>
-      
+        <Outlet />
+
     </div>
   )
 }
