@@ -1,6 +1,6 @@
 const RegisterBtn = () => {
   return (
-    <a href=""  className='rounded-[30px] bg-[#38B698]  border-[4px] border-solid border-[#38B698] p-1 px-3 center text-white'>REGISTRARME</a>
+    <a href=""  className='rounded-[30px] bg-[#38B698]  border-[4px] border-solid border-[#38B698] py-2 px-4 center text-white'>REGISTRARRMRME</a>
   )
 }
 
