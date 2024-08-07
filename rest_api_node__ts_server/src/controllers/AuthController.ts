@@ -1,17 +1,39 @@
 import { Request, Response } from "express";
 import User from "../models/User.model";
+import { hashPassword } from "../utils/auth";
+import Token from "../models/Token.model";
+import { generateToken } from "../utils/token";
 
 export class AuthController{
 
     static createAccount = async (req: Request, res: Response) => {
         try {
-            const user = await User.create(req.body);
-            res.send('cuenta creada correctamente, revisa tu email para confirmarla');
+            const { password, email } = req.body;
+
+            const userExist = await User.findOne({
+                where: { email } // Corregir la búsqueda del usuario existente
+            });
+
+            if(userExist){
+                const error = new Error('El usuario ya esta registrado');
+                return res.status(409).json({error: error.message})
+           }
+           
+            const user = new User(req.body);
+            user.password = await hashPassword(password);
+
+            const token = new Token()
+            token.token = generateToken();
+            token.userId = user.id;
+            await Promise.allSettled([User.create(user), Token.create(token)])
+            res.send(token.token);
             
         } catch (error) {
             console.log(error);
         }
     }
+
+
     
     static getAllUsers = async (req: Request, res: Response) => {
         try {

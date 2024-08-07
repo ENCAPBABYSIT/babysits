@@ -6,6 +6,7 @@ interface UserAttributes {
   id?: number;
   name: string;
   lastname:string;
+  user:string;
   email:string;
   confirmed:boolean;
   age:number;
@@ -22,6 +23,7 @@ class User extends Model<UserAttributes> implements UserAttributes {
   public id!: number;
   public name!: string;
   public lastname!: string;
+  public user!: string;
   public email!: string;
   public confirmed!: boolean;
   public age!: number;
@@ -51,6 +53,9 @@ User.init(
     lastname: {
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    user: {
+      type: DataTypes.STRING
     },
     email:{
         type: DataTypes.STRING,
