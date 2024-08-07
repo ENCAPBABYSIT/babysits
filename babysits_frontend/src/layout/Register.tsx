@@ -1,31 +1,38 @@
-const Register = () => {
-  return (
-    <div className="h-screen bg-green-100 flex flex-col items-center">
-      <header className="w-full bg-white flex justify-between items-center py-4 shadow px-56">
-        <button className="">VOLVER</button>
+import React from "react";
+import { useLocation } from "react-router-dom"
+import { Outlet, Link } from 'react-router-dom';
 
-        <span className='font-bold text-2xl'>LOGO</span>
-        <div className="flex items-center space-x-2">
-          
-          <div className="w-20 bg-gray-200 h-1 relative">
-            <div className="absolute top-0 left-0 h-full bg-green-500" style={{ width: '2%' }}></div>
+const Register = () => {
+
+  const location = useLocation();
+  const data = location.state as {
+    names: string;
+    lastNames: string;
+    email: string;
+    password: string;
+  };
+
+  return (
+    <div className="h-screen flex flex-col items-center">
+      <header className="w-full bg-[#38b69988] flex justify-between items-center py-4 shadow px-56">
+        <Link to="/">Volver</Link>
+        <div className="flex flex-col items-center justify-center">
+          <div className="text-center">
+            <span className='font-extrabold text-3xl'>LOGO</span>
           </div>
-          <span>2%</span>
+          <div className="w-96 bg-gray-200 h-[0.5rem] my-3 relative rounded">
+            <div className="absolute top-0 left-0 h-full bg-[#247361] rounded" style={{ width: '20%' }}></div>
+          </div>
+          <div className="text-center">
+            <span>20%</span>
+          </div>
+        </div>
+        <div className="flex items-center space-x-2">
         </div>
       </header>
-      <div className="flex-grow flex flex-col justify-center items-center">
-        <h1 className="text-lg font-bold mb-8">DESEO REGISTRARME COMO:</h1>
-        <div className="space-y-4">
-          <button className="bg-green-500 text-white py-2 px-4 rounded-lg flex items-center justify-between w-64">
-            Padres o Familia
-            <span className="ml-auto">&gt;</span>
-          </button>
-          <button className="bg-green-500 text-white py-2 px-4 rounded-lg flex items-center justify-between w-64">
-            Niñera
-            <span className="ml-auto">&gt;</span>
-          </button>
-        </div>
-      </div>
+
+        <Outlet />
+
     </div>
   )
 }
