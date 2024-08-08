@@ -20,19 +20,19 @@ interface UserAttributes {
 
 // Define el modelo User
 class User extends Model<UserAttributes> implements UserAttributes {
-  public id!: number;
-  public name!: string;
-  public lastname!: string;
-  public user!: string;
-  public email!: string;
-  public confirmed!: boolean;
-  public age!: number;
-  public usertype!: number;
-  public helpswith!: string;
-  public pay!:string;
-  public about!: string;
-  public children!: number;
-  public password!: string;
+  declare id: number;
+  declare name: string;
+  declare lastname: string;
+  declare user: string;
+  declare email: string;
+  declare confirmed: boolean;
+  declare age: number;
+  declare usertype: number;
+  declare helpswith: string;
+  declare pay:string;
+  declare about: string;
+  declare children: number;
+  declare password: string;
 }
 
 User.init(

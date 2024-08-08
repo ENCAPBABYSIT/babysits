@@ -6,13 +6,13 @@ import User from './User.model';
 interface TokenAttributes {
   id?: number;
   token: string;
-  userId:number;
+  userId: number;
 }
 
 class Token extends Model<TokenAttributes> implements TokenAttributes {
-    public id!: number;
-    public token!: string;
-    public userId!: number;
+    declare id: number;
+    declare token: string;
+    declare userId: number;
   }
 
 Token.init(
@@ -36,7 +36,7 @@ Token.init(
     },
     {
       sequelize,
-      tableName: 'users',
+      tableName: 'tokens',
     }
   );
 export default Token;
