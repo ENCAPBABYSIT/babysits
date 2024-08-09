@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppLayout from "./layout/AppLayout";
-import Register from "./layout/Register";
+import AuthLayout from "./layout/AuthLayout";
 import UserType from "./pages/Registros/UserType";
 import UserDirection from "./pages/Registros/UserDirection";
 import UserChildren from "./pages/Registros/UserChildren";
@@ -16,7 +16,7 @@ export default function Router(){
                 <Route path="/" element={<AppLayout/>} index>
                 </Route>
  
-                <Route path="/signin" element={<Register/>}>
+                <Route path="/signin" element={<AuthLayout/>}>
                     <Route element={<UserType/>} index/>
                     <Route path="direction" element={<UserDirection/>}/>
                     <Route path="UserChildren" element={<UserChildren/>}/>

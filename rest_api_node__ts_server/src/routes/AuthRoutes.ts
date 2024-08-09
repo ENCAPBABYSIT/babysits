@@ -35,8 +35,14 @@ router.post('/confirm-account',
     AuthController.confirmAccount
 )
 
-router.get('/',
-    AuthController.getAllUsers)
+router.post('/login',
+    body('password')
+    .notEmpty().withMessage('La contraseña no puede estar vacia'),
+    body('email')
+        .isEmail().withMessage('Email no valido'), 
+    handleInputErrors,
+    AuthController.login
+)
 
 router.get('/:id',
     param('id').isInt().withMessage('ID no valido'),

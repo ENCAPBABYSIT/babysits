@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
 import User from "../models/User.model";
-import { hashPassword } from "../utils/auth";
+import { checkPassword, hashPassword } from "../utils/auth";
 import Token from "../models/Token.model";
 import { generateToken } from "../utils/token";
 import { AuthEmail } from "../email/AuthEmail";
+import { check } from "express-validator";
 export class AuthController{
 
     static createAccount = async (req: Request, res: Response) => {
@@ -71,6 +72,52 @@ export class AuthController{
             res.status(500).json({error: 'Hubo un Error'});
         }
     }
+
+    static login = async (req: Request, res:Response) => {
+        try{
+
+            const {email, password} = req.body;
+            const user = await User.findOne({
+                where: { email } 
+            });
+
+            if(!user){
+                const error = new Error('Usuario no encontrado');
+                return res.status(401).json({error: error.message});
+            }
+
+            if(!user.confirmed){
+                const token = new Token();
+                token.userId = user.id;
+                token.token = generateToken();
+                await token.save();
+
+                //enviar el email
+                AuthEmail.sendConfirmationEmail({
+                    email: user.email,
+                    name: user.name,
+                    token: token.token
+                })
+
+                const error = new Error('La cuenta aún no ah sido confirmada, hemos enviado un mensaje a su correo de confirmación');
+
+                return res.status(401).json({error: error.message});
+            }
+
+            //Revisar contraseña
+            const isPasswordCorrect = await checkPassword(password, user.password);
+            if(!isPasswordCorrect){
+                const error = new Error('Contraseña Inorrecta');
+                return res.status(401).json({error: error.message});
+            }
+            
+            res.send
+            
+        }catch(error){
+            res.status(500).json({error: 'Hubo un Error'});
+        }
+    }
+
 
 
     
