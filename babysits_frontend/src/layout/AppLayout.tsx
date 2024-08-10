@@ -1,9 +1,9 @@
-import Header from '../components/Header'
+import Header from '@/components/Header'
 import Home from '../pages/Home'
-import Footer from '../components/Footer'
-import LogIn from '../components/modals/LogIn'
+import Footer from '@/components/Footer'
+import LogIn from '@/components/modals/LogIn'
 import { useState, useEffect } from 'react'
-import SignUp from '../components/modals/SignUp'
+import SignUp from '@/components/modals/SignUp'
 
 interface Sitter {
   id: number,

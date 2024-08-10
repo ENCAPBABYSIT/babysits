@@ -1,16 +1,7 @@
-import React from "react";
-import { useLocation } from "react-router-dom"
 import { Outlet, Link } from 'react-router-dom';
 
 const Register = () => {
 
-  const location = useLocation();
-  const data = location.state as {
-    names: string;
-    lastNames: string;
-    email: string;
-    password: string;
-  };
 
   return (
     <div className="h-screen flex flex-col items-center">
@@ -30,9 +21,7 @@ const Register = () => {
         <div className="flex items-center space-x-2">
         </div>
       </header>
-
         <Outlet />
-
     </div>
   )
 }
