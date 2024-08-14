@@ -85,6 +85,7 @@ const AppLayout = () => {
         <SignUp 
           showModalSignUp = {showModalSignUp}
           setShowModalSignUp={setShowModalSignUp}
+          
         />
           
       )}

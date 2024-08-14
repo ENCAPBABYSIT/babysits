@@ -1,8 +1,11 @@
 import React from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { UserRegistrationForm } from 'types';
+import { useMutation } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { createAccount } from '../../api/AuthAPI';
 
 
 interface SignUpProps {
@@ -10,23 +13,34 @@ interface SignUpProps {
   setShowModalSignUp: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-interface SignUpInput {
-  names:string
-  lastNames:string
-  email:string
-  password:string
-}
+
+const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {   
+
+  const initialValues: UserRegistrationForm  = {
+    name: '',
+    lastname: '',
+    email: '',
+    password: '',
+    password_confirmation: ''
+  }
+
+  const error = 'error';
+
+  const {register, handleSubmit, watch, reset, formState: {errors}} = useForm<UserRegistrationForm>({ defaultValues: initialValues});
+
+  const {mutate} = useMutation({
+    mutationFn: createAccount,
+    onError: () => {
+      toast.error(error)
+    },
+    onSuccess: (data) => {
+      toast.success(data)
+    }
+  })
 
 
-const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
-
-  const {register, handleSubmit} = useForm<SignUpInput>()
-  const navigate = useNavigate();
-
-  const onSubmit: SubmitHandler<SignUpInput> = (data) => {
-    console.log(data);
-    navigate('/signin', {state:data}); // Redirigir a otra ventana después de enviar el formulario
-  };
+  const handleRegister = (formData: UserRegistrationForm) => mutate(formData);
+  
 
   if (!showModalSignUp) {
     return null; // No renderizar el modal si showModalLogin es falso
@@ -53,17 +67,17 @@ const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {
       <h1 className="text-3xl font-bold mb-4 text-[#38B698]">LOGO</h1>
       <h2 className="text-lg ">Bienvenido a <span className='font-bold'>LOGO</span> </h2>
       <h2 className="text-lg mb-4">¡Registrate!, es gratis</h2>
-      <form className="space-y-4" onSubmit={handleSubmit(onSubmit)} action='/toregister' method='POST'>
+      <form className="space-y-4" onSubmit={handleSubmit(handleRegister)} action='/toregister' method='POST'>
         <div className="flex space-x-4">
           <input
-            {...register("names", {required:true})}
+            {...register("name", {required:true})}
             type="text"
-            placeholder="Nombres"
+            placeholder="name"
             className="w-full p-2 border rounded"
            
           />
           <input
-            {...register("lastNames", {required:true})}
+            {...register("lastname", {required:true})}
             type="text"
             placeholder="Apellidos"
             className="w-full p-2 border rounded"
