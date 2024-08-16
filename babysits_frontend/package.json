@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.1.2",
+    "@heroicons/react": "^2.1.5",
     "@tanstack/react-query": "^5.51.23",
     "@types/react-query": "^1.2.9",
     "axios": "^1.3.1",

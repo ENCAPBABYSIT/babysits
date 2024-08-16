@@ -1,124 +1,71 @@
-import React from 'react'
-import { useForm } from 'react-hook-form';
-import { UserRegistrationForm } from 'types';
-import { useMutation } from '@tanstack/react-query';
-import { toast } from 'react-toastify';
-import { FaFacebookF } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import { createAccount } from '../../api/AuthAPI';
+import { useForm } from "react-hook-form";
+import { UserLoginForm } from "../../types/index";
+import ErrorMessage from "@/components/ErrorMessage";
 
+export default function LoginView() {
 
-interface SignUpProps {
-  showModalSignUp: boolean
-  setShowModalSignUp: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-
-const SignUp = ({setShowModalSignUp, showModalSignUp} : SignUpProps) => {   
-
-  const initialValues: UserRegistrationForm  = {
-    name: '',
-    lastname: '',
+  const initialValues: UserLoginForm = {
     email: '',
     password: '',
-    password_confirmation: ''
   }
+  const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: initialValues })
 
-  const error = 'error';
+  const handleLogin = (formData: UserLoginForm) => { }
 
-  const {register, handleSubmit, watch, reset, formState: {errors}} = useForm<UserRegistrationForm>({ defaultValues: initialValues});
-
-  const {mutate} = useMutation({
-    mutationFn: createAccount,
-    onError: () => {
-      toast.error(error)
-    },
-    onSuccess: (data) => {
-      toast.success(data)
-    }
-  })
-
-
-  const handleRegister = (formData: UserRegistrationForm) => mutate(formData);
-  
-
-  if (!showModalSignUp) {
-    return null; // No renderizar el modal si showModalLogin es falso
-  }
-
-  const handleClose = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (e.target === e.currentTarget) {
-      setShowModalSignUp(false);
-    }
-  };
-  
   return (
-    <div
-    className="fixed inset-0 bg-[#2c4636b2] flex items-center justify-center z-50"
-    onClick={handleClose}
-  >
-    <div className="relative bg-white p-8 rounded-lg shadow-lg max-w-md w-full text-center">
-      <button
-        className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-        onClick={() => setShowModalSignUp(false)}
+    <>
+      <form
+        onSubmit={handleSubmit(handleLogin)}
+        className="space-y-8 p-10 bg-white"
+        noValidate
       >
-        &times;
-      </button>
-      <h1 className="text-3xl font-bold mb-4 text-[#38B698]">LOGO</h1>
-      <h2 className="text-lg ">Bienvenido a <span className='font-bold'>LOGO</span> </h2>
-      <h2 className="text-lg mb-4">¡Registrate!, es gratis</h2>
-      <form className="space-y-4" onSubmit={handleSubmit(handleRegister)} action='/toregister' method='POST'>
-        <div className="flex space-x-4">
-          <input
-            {...register("name", {required:true})}
-            type="text"
-            placeholder="name"
-            className="w-full p-2 border rounded"
-           
-          />
-          <input
-            {...register("lastname", {required:true})}
-            type="text"
-            placeholder="Apellidos"
-            className="w-full p-2 border rounded"
-          />
-        </div>
-        <div>
-          <input
-           {...register("email", {required:true})}
-            type="email"
-            placeholder="Correo Electrónico"
-            className="w-full p-2 border rounded"
-          />
-        </div>
-        <div>
-          <input
-            {...register("password", {required:true})}
-            type="password"
-            placeholder="Contraseña - mínimo 8 dígitos"
-            className="w-full p-2 border rounded"
-          />
-        </div>
-        <button type="submit" className="w-full bg-[#38B698] text-white py-2 rounded-2xl">
-          Registrarme
-        </button>
-      </form>
-      <p className="my-4">o continuar con</p>
-      <div className="flex justify-center space-x-4">
-        <button className="flex px-5 border rounded-3xl hover:bg-blue-200 justify-between items-center gap-4 ">
-          <FaFacebookF color='#3b5998'/>
-          Facebook
-        </button>
+        <div className="flex flex-col gap-5">
+          <label
+            className="font-normal text-2xl"
+          >Email</label>
 
-        <button 
-          className="flex px-5 py-2 border rounded-3xl hover:bg-blue-200 justify-between items-center gap-4 ">
-          <FcGoogle />
-          Google</button>
-      </div>
-      <p className="mt-4">Si ya tienes una cuenta, <button className="text-blue-500">Iniciar Sesión</button></p>
-    </div>
-  </div>
+          <input
+            id="email"
+            type="email"
+            placeholder="Email de Registro"
+            className="w-full p-3  border-gray-300 border"
+            {...register("email", {
+              required: "El Email es obligatorio",
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: "E-mail no válido",
+              },
+            })}
+          />
+          {errors.email && (
+            <ErrorMessage>{errors.email.message}</ErrorMessage>
+          )}
+        </div>
+
+        <div className="flex flex-col gap-5">
+          <label
+            className="font-normal text-2xl"
+          >Password</label>
+
+          <input
+            type="password"
+            placeholder="Password de Registro"
+            className="w-full p-3  border-gray-300 border"
+            {...register("password", {
+              required: "El Password es obligatorio",
+            })}
+          />
+          {errors.password && (
+            <ErrorMessage>{errors.password.message}</ErrorMessage>
+          )}
+        </div>
+
+        <input
+          type="submit"
+          value='Iniciar Sesión'
+          className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3  text-white font-black  text-xl cursor-pointer"
+        />
+      </form>
+    </>
   )
 }
-
-export default SignUp

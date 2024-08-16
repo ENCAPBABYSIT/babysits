@@ -1,19 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AppLayout from "./layout/AppLayout";
-import AuthLayout from "./layout/AuthLayout";
-import UserType from "./pages/Registros/UserType";
-import UserDirection from "./pages/Registros/UserDirection";
-import UserChildren from "./pages/Registros/UserChildren";
-import UserTypeOfCare from "./pages/Registros/UserTypeOfCare";
-import UserCalendar from "./pages/Registros/UserCalendar";
-import UserExtras from "./pages/Registros/UserExtras";
+import AppLayout from "./layouts/AppLayout";
+import AuthLayout from "./layouts/AuthLayout";
+import UserType from "@/views/Registros/UserType";
+import UserDirection from "@/views/Registros/UserDirection";
+import UserChildren from "@/views/Registros/UserChildren";
+import UserTypeOfCare from "@/views/Registros/UserTypeOfCare";
+import UserCalendar from "@/views/Registros/UserCalendar";
+import UserExtras from "@/views/Registros/UserExtras";
+import Home from "@/views/Home";
 
 export default function Router(){
-
+    
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<AppLayout/>} index>
+                <Route  element={<AppLayout/>} >
+                    <Route path="/" element={ <Home/> } index/>
+                    {/* <Route path="/" element={<Home />} index /> */}
                 </Route>
  
                 <Route path="/signin" element={<AuthLayout/>}>
